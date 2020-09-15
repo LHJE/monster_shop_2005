@@ -5,15 +5,9 @@ RSpec.describe 'Site Navigation' do
     before :each do
       @merchant = User.create!(name:"Leah", address:"123 Sesame Street", city:"New York", state:"NY", zip:"90210", email: "Leahsocool@gmail.com", password:"Imeanit", password_confirmation:"Imeanit", role: 1)
 
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@merchant)
+
       visit "/"
-
-      within 'nav' do
-        click_link "Login"
-      end
-
-      fill_in :email, with: @merchant.email
-      fill_in  :password, with: @merchant.password
-      click_button "Login"
     end
 
     it "I see the same links as a regular user and a link to merchant dashboard" do
