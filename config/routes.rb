@@ -51,7 +51,7 @@ Rails.application.routes.draw do
 
   get "/logout", to: "sessions#destroy"
 
-  get "/admin/users", to: "admin#index"
+  get "/admin/users", to: "admin/users#index"
 
   namespace :admin do
     get "/admin", to: "dashboard#index", as: :dashboard

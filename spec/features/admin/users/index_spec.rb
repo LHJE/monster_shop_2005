@@ -13,7 +13,7 @@ RSpec.describe "Admin User Index Page", type: :feature do
 
     it "has link to Users in nav only available to Admins" do
 
-      visit "/admin"
+      visit '/'
 
       click_link "Users"
 
@@ -24,6 +24,7 @@ RSpec.describe "Admin User Index Page", type: :feature do
       expect(page).to have_content("#{@admin_user.created_at}")
       expect(page).to have_content("#{@reg_user.created_at}")
       expect(page).to have_content("#{@merchant_employee.created_at}")
+      expect(page).to have_content("User Role: #{@admin_user.role}")
 
     end
   end
