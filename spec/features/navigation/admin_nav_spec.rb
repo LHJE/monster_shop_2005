@@ -24,7 +24,7 @@ RSpec.describe 'Site Navigation' do
 
     it "I can see All Users when logged in as an admin" do
       within 'nav' do
-        expect(page).to have_content("All Users")
+        expect(page).to have_content("Users")
       end
     end
 

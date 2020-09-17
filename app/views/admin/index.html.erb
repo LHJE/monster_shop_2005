@@ -1,1 +1,7 @@
 #admin index
+<h1>Admin Index</h1>
+<h3>User Roles: Admin = 2, Merchants = 1, Users: 0</h3>
+<% @users.each do |user| %>
+  <%= "User Role: #{user.role}, Register Date: #{user.created_at}" %>
+  <%= link_to "#{user.name}", "/admin/users/#{user.id}" %><br>
+<% end %>
